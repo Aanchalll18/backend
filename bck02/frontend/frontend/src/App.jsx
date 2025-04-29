@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import axios from 'axios'
 
 function App() {
   const [jokes, setJokes] = useState([]);
 
-  useEffect(() => {
-    fetch('/api/jokes') 
-      .then(res => res.json())
-      .then(data => setJokes(data))
-      .catch(err => console.error('Error fetching jokes:', err));
-  }, []);
+  useEffect(()=>{
+    axios.get('http://localhost:3000/api/jokes')
+    .then(res=>setJokes(res.data))
+    .catch(err=>console.error(err))
+  },[])
 
   return (
     <>
