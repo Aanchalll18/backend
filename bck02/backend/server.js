@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
     res.send('hello');
 });
 
-aapp.get('/api/jokes', (req, res) => {
+app.get('/api/jokes', (req, res) => {
     res.json([
       {
         id: 1,
